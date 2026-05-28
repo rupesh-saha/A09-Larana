@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Card, Button, Spinner } from "@heroui/react";
+import {ArrowRight} from '@gravity-ui/icons';
 import Image from 'next/image';
 
 const FeaturedSection = async () => {
@@ -20,9 +21,9 @@ const FeaturedSection = async () => {
             </h2>
           </div>
 
-          <Link href="/all-appointments">
+          <Link href="/all-appointments" className="hidden md:flex">
             <Button variant="flat" className="bg-[#0066FF]/10 text-[#0066FF] font-bold hover:bg-[#0066FF]/20">
-              See All Doctors
+              See All Doctors <ArrowRight/>
             </Button>
           </Link>
         </div>
@@ -68,6 +69,15 @@ const FeaturedSection = async () => {
             </Card>
           ))}
 
+        </div>
+
+        <div className="flex mt-12 justify-end md:hidden">
+
+          <Link href="/all-appointments">
+            <Button variant="flat" className="bg-[#0066FF]/10 text-[#0066FF] font-bold hover:bg-[#0066FF]/20">
+              See All Doctors <ArrowRight/>
+            </Button>
+          </Link>
         </div>
 
       </div>

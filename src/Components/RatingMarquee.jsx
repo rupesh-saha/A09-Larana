@@ -28,10 +28,10 @@ const testimonials = [
   },
   {
     id: 4,
-    name: "Farhana Rahman Medha",
-    location: "Patient • Dhaka",
-    initials: "FI",
-    text: "The user interface is spotless. I found a top-rated sexy cardiologist in seconds. Outstanding service.",
+    name: "Farhana Rahman",
+    location: "Patient • Rajshahi",
+    initials: "FR",
+    text: "The user interface is spotless. I found a top-rated cardiologist in seconds. Outstanding service.",
   },
 ];
 
@@ -47,7 +47,6 @@ const RatingMarquee = () => {
         </h2>
       </div>
 
-      {/* React Fast Marquee Implementation */}
       <Marquee 
         pauseOnHover={true} 
         gradient={false} 
@@ -57,17 +56,14 @@ const RatingMarquee = () => {
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}
-            className="relative w-[350px] shrink-0 bg-slate-50 rounded-2xl p-8 border border-slate-100 shadow-sm transition-shadow duration-300 hover:shadow-xl group mx-4"
+            className="relative w-87.5 shrink-0 bg-slate-50 rounded-2xl p-8 border border-slate-100 shadow-sm transition-shadow duration-300 hover:shadow-xl group mx-4"
           >
-            {/* Background Watermark Quote */}
             <FaQuoteRight className="absolute top-6 right-6 text-7xl text-slate-200/50 -rotate-12 transition-transform duration-300 group-hover:rotate-0 group-hover:scale-110" />
 
-            {/* Review Text */}
             <p className="relative z-10 text-gray-600 font-medium leading-relaxed mb-8 italic">
               " {testimonial.text} "
             </p>
 
-            {/* Bottom Section: Avatar, Name, and Stars */}
             <div className="relative z-10 flex items-center justify-between mt-auto">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-[#0066FF]/10 text-[#0066FF] flex items-center justify-center font-bold text-lg border border-[#0066FF]/20">
@@ -79,7 +75,6 @@ const RatingMarquee = () => {
                 </div>
               </div>
 
-              {/* 5-Star Rating */}
               <div className="flex text-amber-400 text-sm gap-0.5">
                 <FaStar />
                 <FaStar />
