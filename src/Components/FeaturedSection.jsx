@@ -4,7 +4,7 @@ import {ArrowRight} from '@gravity-ui/icons';
 import Image from 'next/image';
 
 const FeaturedSection = async () => {
-  const res = await fetch('http://localhost:5002/featured-doctors');
+  const res = await fetch('http://localhost:5002/featured-doctors', {cache: 'force-cache'});
   const doctors = await res.json();
 
   return (
@@ -33,14 +33,14 @@ const FeaturedSection = async () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
           {doctors.map((doctor) => (
-            <Card key={doctor.id} className="group relative col-span-1 h-102 w-full overflow-hidden rounded-3xl border-none shadow-md hover:scale-105 transition-all duration-500">
+            <Card key={doctor.id} className="group relative col-span-1 h-102 w-full overflow-hidden rounded-3xl border-none shadow-md hover:scale-102 transition-all duration-500">
 
               <Image
                 alt={doctor.name}
                 aria-hidden="true"
                 width={500}
                 height={600}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-102"
                 src={doctor.image}
               />
 

@@ -27,25 +27,25 @@ const HeroBanner = () => {
       id: 2,
       title: "Your Health Is Our Top Priority",
       subtitle: "Experience seamless scheduling and manage your medical records securely.",
-      image: "/cover2.avif",
+      image: "/cover4.jpg",
     },
     {
       id: 3,
       title: "Connect With Specialists Instantly",
       subtitle: "Find the right doctor for your specific needs and get care faster.",
-      image: "/cover1.jpeg",
+      image: "/cover3.jpg",
     },
     {
       id: 4,
       title: "Elevating your health, one appointment at a time.",
       subtitle: "Experience world-class medical consultation in spaces designed for your comfort and well-being.",
-      image: "/cover4.avif",
+      image: "/cover2.avif",
     },
     {
       id: 5,
       title: "Health First - Always",
       subtitle: "Check your health immediately and secure youre health & future.",
-      image: "/cover3.avif",
+      image: "/cover1.jpeg",
     }
   ];
 
