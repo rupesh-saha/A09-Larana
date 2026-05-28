@@ -55,6 +55,21 @@ const RegisterPage = () => {
 
   }
 
+  const handleGoogleSignIn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+
+    toast.success("Registration Successful", {
+      description: "Welcome to Larana",
+      position: "bottom"
+    });
+
+    setTimeout(() => {
+      router.push("/");
+    }, 1500);
+  }
+
 
 
 
@@ -165,7 +180,7 @@ const RegisterPage = () => {
               <div className="grow border-t border-gray-200"></div>
             </div>
 
-            <Button className="w-full py-5" variant="tertiary">
+            <Button className="w-full py-5" variant="tertiary" onClick={handleGoogleSignIn}>
               <Icon icon="devicon:google" />
               Sign up with Google
             </Button>

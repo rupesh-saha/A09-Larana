@@ -52,6 +52,12 @@ export default function LoginPage() {
 
   }
 
+  const handleGoogleSignIn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+  }
+
 
   return (
     <div className="flex h-[90vh] md:h-screen w-full bg-white">
@@ -162,7 +168,7 @@ export default function LoginPage() {
               <div className="grow border-t border-gray-200"></div>
             </div>
 
-            <Button className="w-full py-5" variant="tertiary">
+            <Button className="w-full py-5" variant="tertiary" onClick={handleGoogleSignIn}>
               <Icon icon="devicon:google" />
               Sign in with Google
             </Button>
