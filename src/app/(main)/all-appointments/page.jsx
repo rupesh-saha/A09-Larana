@@ -2,6 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+export const metadata = {
+  title: "All Available Appointment",
+  description: "all appointment page",
+};
+
 const AllAppointmentsPage = async () => {
 
   let doctors = [];
@@ -20,7 +25,7 @@ const AllAppointmentsPage = async () => {
           <p className="text-[#0066FF] font-bold tracking-widest uppercase text-sm mb-3">
             Our Specialists
           </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
+          <h1 className="text-6xl font-extrabold text-gray-900 tracking-tight mb-4">
             Find Your Doctor
           </h1>
           <p className="text-gray-500 max-w-2xl text-lg">
@@ -65,7 +70,7 @@ const AllAppointmentsPage = async () => {
                   </div>
                 </div>
 
-                <Link href={`/doctor/${doctor.id}`} className="flex h-10 w-full items-center justify-center rounded-xl bg-white px-3 text-sm font-bold text-[#0066FF] shadow-lg transition-transform hover:scale-[1.02] hover:bg-[#0066FF]/80 hover:text-white hover:font-extrabold active:bg-[#0066FF]/80 active:text-white active:font-extrabold active:scale-95 glass">
+                <Link href={`/doctor/${doctor.id}`} className="flex h-10 w-full items-center justify-center rounded-xl bg-white/85 px-3 text-sm font-bold text-[#0066FF] shadow-lg transition-transform hover:scale-[1.02] hover:bg-[#0066FF]/80 hover:text-white hover:font-extrabold active:bg-[#0066FF]/80 active:text-white active:font-extrabold active:scale-95 glass">
                   View Details
                 </Link>
               </div>

@@ -62,7 +62,7 @@ const FeaturedSection = async () => {
                   </div>
                 </div>
 
-                <Button className="bg-white text-black font-bold shadow-lg shrink-0" size="sm" variant="solid">
+                <Button className="bg-white/85 glass text-[#0066FF] font-bold shadow-lg shrink-0" size="sm" variant="solid">
                   View Details
                 </Button>
               </Card.Footer>

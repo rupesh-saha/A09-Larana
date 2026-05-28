@@ -11,10 +11,8 @@ const FooterBar = () => {
   return (
     <footer className="bg-slate-100 border-t border-slate-200 pt-16 pb-8 mt-auto">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Top Section: Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
 
-          {/* Column 1: Brand & Description */}
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2">
               <Image
@@ -30,7 +28,6 @@ const FooterBar = () => {
             </p>
           </div>
 
-          {/* Column 2: Quick Links */}
           <div className="flex flex-col gap-4">
             <h3 className="font-bold text-gray-900 tracking-tight text-lg">Quick Links</h3>
             <ul className="flex flex-col gap-3">
@@ -52,7 +49,6 @@ const FooterBar = () => {
             </ul>
           </div>
 
-          {/* Column 3: Legal */}
           <div className="flex flex-col gap-4">
             <h3 className="font-bold text-gray-900 tracking-tight text-lg">Legal</h3>
             <ul className="flex flex-col gap-3">
@@ -74,7 +70,6 @@ const FooterBar = () => {
             </ul>
           </div>
 
-          {/* Column 4: Contact & CTA */}
           <div className="flex flex-col gap-4">
             <h3 className="font-bold text-gray-900 tracking-tight text-lg">Need Help?</h3>
             <p className="text-gray-500 text-sm">
@@ -89,25 +84,22 @@ const FooterBar = () => {
           </div>
         </div>
 
-        {/* Bottom Section: Copyright & Socials */}
         <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-sm font-medium text-center md:text-left">
             © {currentYear} Larana. All rights reserved.
           </p>
 
-          {/* Social Icons */}
           <div className="flex items-center gap-5">
-            {/* Facebook */}
+
             <a href="#" className="text-gray-400 hover:text-[#0066FF] transition-colors" aria-label="Facebook">
               <FaFacebook className="text-xl" />
             </a>
             
-            {/* The New X Logo */}
+
             <a href="#" className="text-gray-400 hover:text-black transition-colors" aria-label="X (formerly Twitter)">
               <FaXTwitter className="text-xl" />
             </a>
 
-            {/* LinkedIn */}
             <a href="#" className="text-gray-400 hover:text-[#0077b5] transition-colors" aria-label="LinkedIn">
               <FaLinkedin className="text-xl" />
             </a>
