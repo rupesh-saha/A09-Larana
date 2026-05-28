@@ -1,3 +1,4 @@
+import FeaturedSection from "@/Components/FeaturedSection";
 import HeroBanner from "@/Components/HeroBanner";
 import HowItWorks from "@/Components/HowItWorks";
 import RatingMarquee from "@/Components/RatingMarquee";
@@ -7,6 +8,7 @@ export default function Home() {
   return (
     <div>
       <HeroBanner/>
+      <FeaturedSection/>
       <HowItWorks/>
       <RatingMarquee/>
       
