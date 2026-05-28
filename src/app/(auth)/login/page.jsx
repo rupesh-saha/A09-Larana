@@ -5,8 +5,52 @@ import Image from "next/image";
 import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { Icon } from "@iconify/react";
+import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
+import { authClient } from "@/lib/auth-client";
+import { Toast, toast } from '@heroui/react';
 
 export default function LoginPage() {
+
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const router = useRouter();
+
+  const handleLogin = async (data) => {
+    console.log(data);
+
+    const { email, password } = data;
+
+    const { data: res, error } = await authClient.signIn.email({
+
+      email: email,
+      password: password,
+      rememberMe: true,
+      callbackURL: "/",
+
+    })
+
+    console.log(error);
+
+    if (error) {
+      toast.danger("Access Denied", {
+        description: error.message || "Invalid credentials provided.",
+        position: "bottom"
+      });
+    }
+
+    if (res) {
+      toast.success("Authentication Successful", {
+        description: "Welcome to Larana",
+        position: "bottom"
+      });
+
+      setTimeout(() => {
+        router.push("/");
+      }, 1500);
+    }
+
+
+  }
 
 
   return (
@@ -54,7 +98,7 @@ export default function LoginPage() {
           </div>
 
 
-          <Form className="flex max-w-[95%] md:w-96 flex-col gap-4">
+          <Form className="flex max-w-[95%] md:w-96 flex-col gap-4" onSubmit={handleSubmit(handleLogin)}>
             <TextField
               isRequired
               name="email"
@@ -67,7 +111,7 @@ export default function LoginPage() {
               }}
             >
               <Label className="font-semibold mb-1">Email</Label>
-              <Input placeholder="larana@doc.com" />
+              <Input placeholder="larana@doc.com" {...register("email", { required: "Email is required" })}/>
               <FieldError />
             </TextField>
 
@@ -92,7 +136,7 @@ export default function LoginPage() {
               className="mb-2"
             >
               <Label className="font-semibold mb-1">Password</Label>
-              <Input placeholder="Enter your password" />
+              <Input placeholder="Enter your password" {...register("password", { required: "Password is required" })}/>
               <FieldError />
             </TextField>
 

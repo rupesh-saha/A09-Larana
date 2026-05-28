@@ -5,15 +5,65 @@ import Image from "next/image";
 import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { Icon } from "@iconify/react";
+import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
+import { authClient } from "@/lib/auth-client";
+import { Toast, toast } from '@heroui/react';
+
+
 
 const RegisterPage = () => {
+
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const router = useRouter();
+
+  const handleRegister = async (data) => {
+    console.log(data);
+
+    const { name, url, email, password } = data;
+
+    const { data: res, error } = await authClient.signUp.email({
+
+      name: name, // required
+      email: email, // required
+      password: password, // required
+      image: url,
+      callbackURL: "/login",
+
+    })
+
+    console.log(error);
+
+    if (error) {
+      toast.danger("Sign Up failed", {
+        description: error.message || "Try again. Larana awaits for you",
+        position: "bottom"
+      });
+    }
+
+    if (res) {
+      toast.success("Registration Successful", {
+        description: "Welcome to Larana",
+        position: "bottom"
+      });
+
+      setTimeout(() => {
+        router.push("/");
+      }, 1500);
+    }
+
+
+  }
+
+
+
 
   return (
     <div className="flex h-[90vh] md:h-screen w-full bg-white">
 
       <div className="flex w-full flex-col items-center justify-center p-8 sm:p-12 lg:w-1/2">
         <div className="flex w-full max-w-md flex-col gap-6">
-          
+
           <div className="flex flex-col items-start gap-2 mt-16 md:mt-24">
             <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">
               Create an account
@@ -23,7 +73,7 @@ const RegisterPage = () => {
             </p>
           </div>
 
-          <Form className="flex max-w-[95%] md:w-96 flex-col gap-4">
+          <Form className="flex max-w-[95%] md:w-96 flex-col gap-4" onSubmit={handleSubmit(handleRegister)}>
 
             <TextField
               isRequired
@@ -37,7 +87,7 @@ const RegisterPage = () => {
               }}
             >
               <Label className="font-semibold mb-1">Full Name</Label>
-              <Input placeholder="John Doe" />
+              <Input placeholder="John Doe" {...register("name", { required: "Name is required" })} />
               <FieldError />
             </TextField>
 
@@ -53,7 +103,7 @@ const RegisterPage = () => {
               }}
             >
               <Label className="font-semibold mb-1">Email</Label>
-              <Input placeholder="larana@doc.com" />
+              <Input placeholder="larana@doc.com" {...register("email", { required: "Email is required" })} />
               <FieldError />
             </TextField>
 
@@ -63,7 +113,7 @@ const RegisterPage = () => {
               type="text"
             >
               <Label className="font-semibold mb-1">Profile URL</Label>
-              <Input placeholder="Enter Your Avatar URL" />
+              <Input placeholder="Enter Your Avatar URL" {...register("url", { required: "Photo URL is required" })} />
               <FieldError />
             </TextField>
 
@@ -87,7 +137,7 @@ const RegisterPage = () => {
               className="mb-1"
             >
               <Label className="font-semibold mb-1">Password</Label>
-              <Input placeholder="Create a strong password" />
+              <Input placeholder="Create a strong password"  {...register("password", { required: "Password is required" })} />
 
               <Description className="text-xs text-gray-500 mt-1">
                 Must be at least 8 characters with 1 uppercase and 1 number

@@ -1,5 +1,9 @@
+import dns from "node:dns";
+dns.setServers(['8.8.8.8', '8.8.4.4']);
+
 import { Geist, Geist_Mono, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
+import { Providers } from "./providers";
 
 const hankenGrotesk = Hanken_Grotesk({
   variable: "--font-hanken-grotesk",
@@ -19,7 +23,13 @@ export default function RootLayout({ children }) {
       data-theme="light"
       className={`${hankenGrotesk.variable} ${hankenGrotesk.variable} h-full antialiased`}
     >
-      <body className={`${hankenGrotesk.className} min-h-full flex flex-col`} suppressHydrationWarning>{children}</body>
+      <body className={`${hankenGrotesk.className} min-h-full flex flex-col`} suppressHydrationWarning>
+        
+        <Providers>
+        {children}
+        </Providers>
+        
+        </body>
     </html>
   );
 }

@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import { Card, Button, Spinner } from "@heroui/react";
-import {ArrowRight} from '@gravity-ui/icons';
+import { ArrowRight } from '@gravity-ui/icons';
 import Image from 'next/image';
 
 const FeaturedSection = async () => {
-  const res = await fetch('http://localhost:5002/featured-doctors', {cache: 'force-cache'});
+  const res = await fetch('http://localhost:5002/featured-doctors', { cache: 'force-cache' });
   const doctors = await res.json();
 
   return (
@@ -23,7 +23,7 @@ const FeaturedSection = async () => {
 
           <Link href="/all-appointments" className="hidden md:flex">
             <Button variant="flat" className="bg-[#0066FF]/10 text-[#0066FF] font-bold hover:bg-[#0066FF]/20">
-              See All Doctors <ArrowRight/>
+              See All Doctors <ArrowRight />
             </Button>
           </Link>
         </div>
@@ -62,9 +62,11 @@ const FeaturedSection = async () => {
                   </div>
                 </div>
 
-                <Button className="bg-white/85 glass text-[#0066FF] font-bold shadow-lg shrink-0" size="sm" variant="solid">
-                  View Details
-                </Button>
+                <Link href={`/doctor/${doctor.id}`}>
+                  <Button className="bg-white/85 glass text-[#0066FF] font-bold shadow-lg shrink-0" size="sm" variant="solid">
+                    View Details
+                  </Button>
+                </Link>
               </Card.Footer>
             </Card>
           ))}
@@ -75,7 +77,7 @@ const FeaturedSection = async () => {
 
           <Link href="/all-appointments">
             <Button variant="flat" className="bg-[#0066FF]/10 text-[#0066FF] font-bold hover:bg-[#0066FF]/20">
-              See All Doctors <ArrowRight/>
+              See All Doctors <ArrowRight />
             </Button>
           </Link>
         </div>
