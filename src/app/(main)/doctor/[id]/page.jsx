@@ -2,12 +2,13 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
-import { Card, Button, Chip } from "@heroui/react";
+import { Card, Chip } from "@heroui/react";
+import BookingModal from "@/Components/BookingModal";
 
 export const metadata = {
-    title: "Doctor Details",
-    description: "Depth insights",
-  };
+  title: "Doctor Details",
+  description: "Depth insights",
+};
 
 const DoctorDetails = async ({ params }) => {
   const { id } = await params;
@@ -23,6 +24,8 @@ const DoctorDetails = async ({ params }) => {
   };
 
   const doctor = await getDoctor(id);
+
+  if (!doctor) return null;
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] py-12 md:py-20 font-sans text-gray-900 pt-26 md:pt-32">
@@ -75,13 +78,12 @@ const DoctorDetails = async ({ params }) => {
                   </span>
                 </div>
 
-                <button className="shrink-0 whitespace-nowrap flex h-10 px-5 items-center justify-center rounded-3xl bg-white/85 text-sm font-bold text-[#0066FF] shadow-lg transition-transform hover:scale-[1.02] hover:bg-[#0066FF]/80 hover:text-white hover:font-extrabold active:bg-[#0066FF]/80 active:text-white active:font-extrabold active:scale-95 glass">
-                  Book Now
-                </button>
+                {/* The Extracted Client Component */}
+                <BookingModal slot={doctor.availability} doctorName={doctor.name} fee={doctor.fee} />
+                
               </div>
             </Card>
           </div>
-
 
           <div className="flex flex-col gap-6 lg:col-span-7">
 
