@@ -71,8 +71,6 @@ const RegisterPage = () => {
   }
 
 
-
-
   return (
     <div className="flex h-[90vh] md:h-screen w-full bg-white">
 

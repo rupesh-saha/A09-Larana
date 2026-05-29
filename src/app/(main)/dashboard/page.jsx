@@ -172,7 +172,7 @@ export default function DashboardPage() {
                       className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-white/50 bg-white/50 p-4 transition-all hover:bg-white/80 hover:shadow-md"
                     >
                       <div className="flex items-center gap-4">
-                        <Avatar src={apt.image} size="lg" isBordered className="border-white" />
+                        <Avatar src={apt.image} size="lg" className="border-white" />
                         <div>
                           <h3 className="text-base font-bold text-gray-900 group-hover:text-[#0066FF] transition-colors">
                             {apt.doctor}
