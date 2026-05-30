@@ -18,7 +18,7 @@ const DoctorDetails = async ({ params }) => {
 
   const getDoctor = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5002/doctors/${id}`, { 
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/doctors/${id}`, { 
         cache: 'no-store',
         headers: {
           authorization: `Bearer ${token}`

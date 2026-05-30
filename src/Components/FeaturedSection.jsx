@@ -4,7 +4,7 @@ import { ArrowRight } from '@gravity-ui/icons';
 import Image from 'next/image';
 
 const FeaturedSection = async () => {
-  const res = await fetch('http://localhost:5002/featured-doctors', { cache: 'force-cache' });
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/featured-doctors`, { cache: 'force-cache' });
   const doctors = await res.json();
 
   return (

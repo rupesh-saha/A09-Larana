@@ -12,7 +12,7 @@ const AllAppointmentsPage = async () => {
 
   let doctors = [];
   try {
-    const res = await fetch('http://localhost:5002/doctors');
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/doctors`);
     doctors = await res.json();
   } catch (error) {
     console.error("Failed to fetch doctors:", error);

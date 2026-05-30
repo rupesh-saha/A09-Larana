@@ -15,7 +15,7 @@ const UpdateModal = ({ apt, session }) => {
 
     const updatedData = { phone, date, gender };
 
-    const response = await fetch(`http://localhost:5002/appointments/${apt._id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/appointments/${apt._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedData),

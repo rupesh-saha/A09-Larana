@@ -17,7 +17,7 @@ export default function BookingModal({ doctorName, fee, slot }) {
 
     appointment.fee = fee;
 
-    const response = await fetch("http://localhost:5002/appointments", {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/appointments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

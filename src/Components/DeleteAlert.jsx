@@ -6,7 +6,7 @@ import {AlertDialog, Button, toast} from "@heroui/react";
 export function DeleteAlert({ apt, setAppointmentList }) {
 
   const handleDelete = async () => {
-    const response = await fetch(`http://localhost:5002/appointments/${apt._id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/appointments/${apt._id}`, {
       method: "DELETE",
     });
     const data = await response.json();
