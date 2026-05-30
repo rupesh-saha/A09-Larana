@@ -3,10 +3,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { Button, Avatar } from "@heroui/react";
+import { Button } from "@heroui/react";
 import NavLink from './NavLink';
 import { BarsMenu } from './BarsMenu';
 import { authClient } from '@/lib/auth-client';
+import { Icon } from "@iconify/react";
 
 const NavBar = () => {
   const { data: session, isPending } = authClient.useSession();
@@ -54,10 +55,8 @@ const NavBar = () => {
 
       <div className="navbar-end flex items-center gap-3">
         {isPending ? (
-          /* Loading Skeleton */
           <div className="w-24 h-10 bg-gray-200/60 animate-pulse rounded-full hidden md:block"></div>
         ) : session ? (
-          /* Logged In State */
           <>
             <Link href="/dashboard" className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-full overflow-hidden border-2 border-gray-200 hover:border-[#0066FF] transition-all">
               <Image
@@ -75,11 +74,11 @@ const NavBar = () => {
               className="font-extrabold px-6 hidden md:flex"
               onPress={async () => await authClient.signOut()}
             >
+              <Icon icon="solar:logout-2-bold-duotone" className="text-lg" />
               Log Out
             </Button>
           </>
         ) : (
-          /* Logged Out State */
           <>
             <Link href="/login">
               <Button variant="flat" className="bg-[#0066FF]/10 text-[#0066FF] font-extrabold px-6 hover:bg-[#0066FF]/20 transition-colors hidden md:flex">

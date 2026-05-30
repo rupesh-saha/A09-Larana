@@ -1,12 +1,11 @@
 "use client";
 
-import { ToastProvider } from "@heroui/react";
+import { Toast } from "@heroui/react";
 
 export function Providers({ children }) {
   return (
     <>
-      {/* Set your global toast position here */}
-      <ToastProvider placement="bottom-center" />
+      <Toast.Provider placement="bottom-center" />
       {children}
     </>
   );

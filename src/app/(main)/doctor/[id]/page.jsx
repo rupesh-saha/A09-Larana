@@ -57,7 +57,6 @@ const DoctorDetails = async ({ params }) => {
                 <div className="absolute bottom-0 w-full h-48 bg-linear-to-t from-black/70 via-[#0066ff]/20 to-transparent"></div>
               </div>
 
-              {/* Top Left Text */}
               <div className="relative z-10 flex flex-col">
                 <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight lg:text-4xl">
                   {doctor.name}
@@ -78,7 +77,6 @@ const DoctorDetails = async ({ params }) => {
                   </span>
                 </div>
 
-                {/* The Extracted Client Component */}
                 <BookingModal slot={doctor.availability} doctorName={doctor.name} fee={doctor.fee} />
                 
               </div>

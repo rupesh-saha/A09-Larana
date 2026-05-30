@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Envelope } from "@gravity-ui/icons";
-import { Button, Input, Label, Modal, Surface, TextField, Select, ListBox } from "@heroui/react";
+import { Button, Input, Label, Modal, Surface, TextField, Select, ListBox, toast } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
 
 export default function BookingModal({ doctorName, fee, slot }) {
@@ -27,6 +27,10 @@ export default function BookingModal({ doctorName, fee, slot }) {
 
     const data = await response.json();
     console.log(data);
+
+    if (data.acknowledged) {
+      toast.success(`Appointment with ${doctorName} booked successfully!`);
+    }
   }
 
   return (

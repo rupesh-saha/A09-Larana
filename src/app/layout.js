@@ -11,6 +11,7 @@ const hankenGrotesk = Hanken_Grotesk({
 });
 
 
+
 export const metadata = {
   title: "Larana - Your Medical Helper",
   description: "Homepage",
