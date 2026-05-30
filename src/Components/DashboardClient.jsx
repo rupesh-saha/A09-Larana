@@ -16,7 +16,7 @@ export default function DashboardClient({ appointments, session }) {
     <div className="min-h-screen bg-[#FAFAFA] font-sans text-gray-900 pt-28 pb-20 px-4 lg:px-8">
       <div className="mx-auto max-w-[98%] md:max-w-[97%] flex flex-col md:flex-row gap-4">
 
-        <div className="w-full md:w-[280px] shrink-0 flex flex-col gap-3">
+        <div className="w-full md:w-70 shrink-0 flex flex-col gap-3">
           <div className="bg-white border border-gray-100 rounded-xl p-5 flex items-center gap-4 shadow-sm">
             <div className="relative h-12 w-12 shrink-0 rounded-full overflow-hidden bg-gray-100">
               <Image src={user.image} alt={user.name} fill className="object-cover" />
@@ -62,9 +62,7 @@ export default function DashboardClient({ appointments, session }) {
                     >
                       <div className="flex flex-col gap-3">
                         <span className="font-extrabold text-gray-900 text-lg">{apt.doctorName}</span>
-                        {/* ✅ Fix: Added flex-wrap and gap-y-2 for mobile wrapping */}
                         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-medium text-gray-600">
-                          {/* ✅ Fix: Added whitespace-nowrap to prevent ugly text breaking */}
                           <span className="flex items-center gap-1.5 whitespace-nowrap">
                             <Icon icon="solar:calendar-linear" className="text-[#0066FF]" />
                             {apt.date}
@@ -79,6 +77,7 @@ export default function DashboardClient({ appointments, session }) {
                           </span>
                         </div>
                       </div>
+
 
 
                       <div className="flex flex-wrap items-center gap-2 mt-2 xl:mt-0">
@@ -96,7 +95,6 @@ export default function DashboardClient({ appointments, session }) {
             </div>
           )}
 
-          {/* MY PROFILE TAB */}
           {activeTab === "profile" && (
             <div className="animate-in fade-in duration-300">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
@@ -108,7 +106,7 @@ export default function DashboardClient({ appointments, session }) {
 
               <div className="flex flex-col gap-6">
                 <div className="bg-[#F2F2F7] rounded-xl p-6 flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
-                  {/* ✅ Fix: Added shrink-0 to prevent the profile image from squeezing */}
+
                   <div className="relative h-20 w-20 shrink-0 rounded-full overflow-hidden bg-white border border-gray-200">
                     <Image src={user.image} alt={user.name} fill className="object-cover" />
                   </div>
