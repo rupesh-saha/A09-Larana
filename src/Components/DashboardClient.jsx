@@ -12,8 +12,6 @@ export default function DashboardClient({ appointments, session }) {
 
   const [appointmentList, setAppointmentList] = useState(appointments);
 
-
-
   const user = session.user;
 
   return (
