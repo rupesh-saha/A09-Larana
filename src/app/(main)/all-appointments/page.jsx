@@ -3,8 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata = {
-  title: "All Available Appointment",
-  description: "all appointment page",
+  title: "All Doctors - Larana",
+  description: "Browse all available doctors on Larana. Filter by specialty and book your appointment instantly.",
+  keywords: "all doctors, find doctor, specialist, cardiologist, neurologist, Bangladesh",
 };
 
 const AllAppointmentsPage = async () => {

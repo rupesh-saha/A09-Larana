@@ -3,6 +3,11 @@ import { headers } from "next/headers";
 import { auth } from "@/lib/auth"; 
 import { revalidatePath } from "next/cache";
 
+export const metadata = {
+  title: "Dashboard - Larana",
+  description: "Manage your appointments and profile on Larana.",
+};
+
 
 export default async function DashboardPage() {
 

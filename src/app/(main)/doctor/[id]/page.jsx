@@ -4,18 +4,26 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { Card, Chip } from "@heroui/react";
 import BookingModal from "@/Components/BookingModal";
-
-export const metadata = {
-  title: "Doctor Details",
-  description: "Depth insights",
-};
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 const DoctorDetails = async ({ params }) => {
   const { id } = await params;
 
+  const {token} = await auth.api.getToken({
+    headers: await headers()
+  })
+
+  console.log(token);
+
   const getDoctor = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5002/doctors/${id}`, { cache: 'no-store' });
+      const response = await fetch(`http://localhost:5002/doctors/${id}`, { 
+        cache: 'no-store',
+        headers: {
+          authorization: `Bearer ${token}`
+        }
+       });
       return await response.json();
     } catch (error) {
       console.error("Failed to fetch doctor details:", error);
