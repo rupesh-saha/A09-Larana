@@ -1,5 +1,10 @@
 Larana - Medical Appointment Booking Platform
+
+
+
 Live Site URL: https://larana-med.vercel.app/
+
+
 Live Server URL: https://larana-server.vercel.app/
 
 Larana is a premium, full-stack healthcare platform designed to connect patients with top medical professionals seamlessly. Built with a focus on modern UI/UX principles and robust backend security, it simplifies the process of finding specialists and managing medical appointments.
