@@ -33,7 +33,6 @@ const HowItWorks = () => {
     <section className="py-20 bg-blue-300/10 w-full">
       <div className="max-w-[93%] md:max-w-[97%] mx-auto px-6 lg:px-8">
         
-        {/* Section Header */}
         <div className="mb-14">
           <p className="text-[#0066FF] font-bold tracking-widest uppercase text-sm mb-2">
             Simple Steps
@@ -43,10 +42,8 @@ const HowItWorks = () => {
           </h2>
         </div>
 
-        {/* Steps Grid */}
         <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           
-          {/* Background Connecting Line (Visible only on Desktop) */}
           <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-[2px] bg-gray-200 z-0"></div>
 
           {steps.map((step) => (
@@ -59,12 +56,10 @@ const HowItWorks = () => {
                 {step.id}
               </div>
 
-              {/* Icon */}
               <div className="mb-5 text-[#0066FF]/80">
                 <step.icon className="w-8 h-8" />
               </div>
 
-              {/* Text Content */}
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 {step.title}
               </h3>
