@@ -7,6 +7,7 @@ import { Button, Drawer } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
+import { Icon } from "@iconify/react";
 
 export function BarsMenu() {
   const router = useRouter();
@@ -77,13 +78,8 @@ export function BarsMenu() {
                   {isPending ? (
                     <div className="h-14 w-full bg-gray-200 animate-pulse rounded-xl"></div>
                   ) : session ? (
-                    /* Logged In State: Pic on left, Button takes remaining width */
                     <div className="flex items-center gap-3 w-full">
-                      <Link 
-                        href="/dashboard" 
-                        onClick={() => setIsOpen(false)}
-                        className="flex-shrink-0 w-14 h-14 rounded-full overflow-hidden border-2 border-gray-200 hover:border-[#0066FF] transition-all"
-                      >
+                      <Link href="/dashboard" onClick={() => setIsOpen(false)} className="shrink-0 w-14 h-14 rounded-full overflow-hidden border-2 border-gray-200 hover:border-[#0066FF] transition-all">
                         <Image
                           src={user?.image || "https://placehold.co/400.png"}
                           alt={user?.name || "User"}
@@ -94,12 +90,8 @@ export function BarsMenu() {
                         />
                       </Link>
                       
-                      <Button
-                        color="danger"
-                        variant="danger"
-                        className="flex-1 font-extrabold py-6"
-                        onPress={handleLogout}
-                      >
+                      <Button color="danger" variant="danger" className="flex-1 font-extrabold py-6" onPress={handleLogout} >
+                        <Icon icon="solar:logout-2-bold-duotone" className="text-lg" />
                         Log Out
                       </Button>
                     </div>
