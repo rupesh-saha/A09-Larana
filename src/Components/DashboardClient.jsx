@@ -4,9 +4,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import UpdateModal from "./UpdateModal";
+import { DeleteAlert } from "./DeleteAlert";
+import { EditModal } from "./EditModal";
 
 export default function DashboardClient({ appointments, session }) {
   const [activeTab, setActiveTab] = useState("bookings");
+
+  const [appointmentList, setAppointmentList] = useState(appointments);
 
 
 
@@ -82,11 +86,9 @@ export default function DashboardClient({ appointments, session }) {
 
                       <div className="flex flex-wrap items-center gap-2 mt-2 xl:mt-0">
 
-                        <UpdateModal apt={apt} session={session}/>
+                        <UpdateModal apt={apt} session={session} />
 
-                        <button className="flex-1 xl:flex-none px-4 py-2 bg-red-50 hover:bg-red-100 text-red-600 font-bold text-sm rounded-lg transition-colors text-center">
-                          Delete
-                        </button>
+                        <DeleteAlert apt={apt} setAppointmentList={setAppointmentList} />
                       </div>
                     </div>
                   ))}
@@ -99,9 +101,10 @@ export default function DashboardClient({ appointments, session }) {
             <div className="animate-in fade-in duration-300">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
                 <h2 className="text-2xl font-extrabold text-gray-900">My Profile</h2>
-                <button className="w-full sm:w-auto px-5 py-2 bg-[#0066ff] text-white font-bold text-sm rounded-lg hover:scale-105 active:scale-95 transition-all">
-                  Edit Profile
-                </button>
+
+                <div className="w-full sm:w-auto">
+                  <EditModal session={session}/>
+                </div>
               </div>
 
               <div className="flex flex-col gap-6">

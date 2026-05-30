@@ -36,8 +36,7 @@ export default function BookingModal({ doctorName, fee, slot }) {
   return (
     <Modal>
       <Button
-        className="shrink-0 whitespace-nowrap flex h-10 px-5 items-center justify-center rounded-3xl bg-white/85 text-sm font-bold text-[#0066FF] shadow-lg transition-transform hover:scale-[1.02] hover:bg-[#0066FF]/80 hover:text-white hover:font-extrabold active:bg-[#0066FF]/80 active:text-white active:font-extrabold active:scale-95 glass border-none"
-      >
+        className="shrink-0 whitespace-nowrap flex h-10 px-5 items-center justify-center rounded-3xl bg-white/85 text-sm font-bold text-[#0066FF] shadow-lg transition-transform hover:scale-[1.02] hover:bg-[#0066FF]/80 hover:text-white hover:font-extrabold active:bg-[#0066FF]/80 active:text-white active:font-extrabold active:scale-95 glass border-none">
         Book Now
       </Button>
 

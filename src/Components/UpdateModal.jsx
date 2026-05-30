@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Envelope } from "@gravity-ui/icons";
 import { Button, Input, Label, Modal, Surface, TextField, Select, ListBox, toast } from "@heroui/react";
+import { revalidateDashboard } from "@/app/action";
 
 const UpdateModal = ({ apt, session }) => {
   const [phone, setPhone] = useState(apt.phone);
@@ -23,13 +24,14 @@ const UpdateModal = ({ apt, session }) => {
     const data = await response.json();
 
     if (data.modifiedCount > 0) {
+      await revalidateDashboard();
       toast.success("Appointment updated successfully!");
     }
   };
 
   return (
     <Modal>
-      <Button className="flex-1 xl:flex-none px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-sm rounded-lg transition-colors">
+      <Button className="flex-1 xl:flex-none px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-sm transition-colors rounded-full">
         Update
       </Button>
 
@@ -81,7 +83,7 @@ const UpdateModal = ({ apt, session }) => {
                         </ListBox>
                       </Select.Popover>
                     </Select>
-                    
+
                   </div>
 
                   <TextField
